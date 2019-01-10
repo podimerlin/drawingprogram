@@ -13,20 +13,22 @@ public class Drawing {
 	final String NL = System.getProperty("line.separator"); 
 	private Character canvas[][];
 
-	final String commandNotAvail = "Command not Available" + NL + 
+	final String ERROR_COMMAND_NOT_AVAIL = "Command not Available" + NL + 
 									"Use the following commands: " + NL +
 									"Command 		Description " + NL +
 									"C w h\t\t\t\t\t Should create a new canvas of width w and height h." + NL +
-"L x1 y1 x2 y2\t\t\t\t\t Should create a new line from (x1,y1) to (x2,y2). Currently only" + NL +
-                "\t\t\t\t\t\t\t horizontal or vertical lines are supported. Horizontal and vertical lines" + NL +
-                "\t\t\t\t\t\t\t will be drawn using the 'x' character." + NL +
-"R x1 y1 x2 y2\t\t\t\t\t Should create a new rectangle, whose upper left corner is (x1,y1) and" + NL +
-                "\t\t\t\t\t\t\t lower right corner is (x2,y2). Horizontal and vertical lines will be drawn" + NL +
-                "\t\t\t\t\t\t\t using the 'x' character." + NL +
-"B x y c\t\t\t\t\t Should fill the entire area connected to (x,y) with \"colour\" c. The" + NL +
-                " \t\t\t\t\t\t\t behaviour of this is the same as that of the \"bucket fill\" tool in paint" + NL +
-                " \t\t\t\t\t\t\t programs." + NL +
-"Q\t\t\t\t\tShould quit the program.";
+                                    "L x1 y1 x2 y2\t\t\t\t\t Should create a new line from (x1,y1) to (x2,y2). Currently only" + NL +
+                                    "\t\t\t\t\t\t\t horizontal or vertical lines are supported. Horizontal and vertical lines" + NL +
+                                    "\t\t\t\t\t\t\t will be drawn using the 'x' character." + NL +
+                                    "R x1 y1 x2 y2\t\t\t\t\t Should create a new rectangle, whose upper left corner is (x1,y1) and" + NL +
+                                    "\t\t\t\t\t\t\t lower right corner is (x2,y2). Horizontal and vertical lines will be drawn" + NL +
+                                    "\t\t\t\t\t\t\t using the 'x' character." + NL +
+                                    "B x y c\t\t\t\t\t Should fill the entire area connected to (x,y) with \"colour\" c. The" + NL +
+                                    " \t\t\t\t\t\t\t behaviour of this is the same as that of the \"bucket fill\" tool in paint" + NL +
+                                    " \t\t\t\t\t\t\t programs." + NL +
+                                    "Q\t\t\t\t\tShould quit the program.";
+	
+	final String ERROR_INVALID_PARAM = "Invalid Parameters";
 	
 	public Drawing() {
 		
@@ -85,7 +87,7 @@ public class Drawing {
 		}
 	}
 
-	public void drawLine(int[] lineArray) {
+	public void drawLine(int[] lineArray) throws Exception {
 		int startX = 0;
 		int startY = 0;
 		int endX = 0;
@@ -96,16 +98,14 @@ public class Drawing {
 			endX = lineArray[2] - 1;
 			endY = lineArray[3] - 1;
 		} catch (NullPointerException npe) {
-			//invalid arguments
-			return;
+			throw new Exception("invalid param");
 		}
 		
 		try {
 			char check1 = canvas[startY][startX];
 			char check2 = canvas[endY][endX];
 		} catch (ArrayIndexOutOfBoundsException ae) {
-			
-			return;
+			throw new Exception("not within canvas");
 		}
 		
 		
@@ -139,7 +139,7 @@ public class Drawing {
 		
 	}
 
-	public void drawRectangle(int[] rectArray) {
+	public void drawRectangle(int[] rectArray) throws Exception {
 		int topLX = 0;
 		int topLY = 0;
 		int botRX = 0;
@@ -151,14 +151,14 @@ public class Drawing {
 			botRY = rectArray[3] - 1;
 		} catch (NullPointerException npe) {
 			//invalid arguments
-			return;
+			throw new Exception("invalid param");
 		}
 		
 		try {
 			char check1 = canvas[topLY][topLX];
 			char check2 = canvas[botRY][botRX];
 		} catch (ArrayIndexOutOfBoundsException ae) {
-			return;
+			throw new Exception("not within canvas");
 		}
 		
 		
@@ -186,7 +186,14 @@ public class Drawing {
 		switch (method) {
 			case "C":
 			case "c":
-				this.createCanvas(Integer.parseInt(command[1]), Integer.parseInt(command[2]));
+				try {
+					if (lineArray.length > 2) {
+						return ERROR_INVALID_PARAM;
+					}
+					this.createCanvas(Integer.parseInt(lineArray[0]), Integer.parseInt(lineArray[1]));
+				} catch (NegativeArraySizeException | NumberFormatException ne) {
+					return ERROR_INVALID_PARAM;
+				}
 				break;
 				
 			case "L":
@@ -195,7 +202,9 @@ public class Drawing {
     				inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
     				this.drawLine(inputs);
 				} catch (NumberFormatException nfe) {
-					return "Invalid parameters";
+					return ERROR_INVALID_PARAM;
+				} catch (Exception e) {
+					return e.getMessage();
 				}
 				break;
 				
@@ -205,7 +214,9 @@ public class Drawing {
 					inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
 					this.drawRectangle(inputs);
 				}  catch (NumberFormatException nfe) {
-					return "Invalid parameters";
+					return ERROR_INVALID_PARAM;
+				} catch (Exception e) {
+					return e.getMessage();
 				}
 				break;	
 				
@@ -218,7 +229,7 @@ public class Drawing {
 				this.floodFill(lineArray);
 				break;
 			default:
-				return commandNotAvail;
+				return ERROR_COMMAND_NOT_AVAIL;
 		}
 		return printCanvas();
 	}

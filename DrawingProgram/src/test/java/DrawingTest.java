@@ -33,7 +33,7 @@ public class DrawingTest {
 	}
 	
 	@Test
-	public void printLine() {
+	public void printLine() throws Exception {
 		//L x1 y1 x2 y2
 		
 		Drawing draw = new Drawing();
@@ -97,7 +97,7 @@ public class DrawingTest {
 	}
 	
 	@Test
-	public void printContinousLine() {
+	public void printContinousLine() throws Exception {
 		Drawing draw = new Drawing();
 		String test1Str = 
 				"----------------------" + NL +
@@ -116,7 +116,7 @@ public class DrawingTest {
 	}
 	
 	@Test 
-	public void printRectangle() {
+	public void printRectangle() throws Exception {
 		Drawing draw = new Drawing();
 		String test1Str = 
 				"----------------------" + NL +
@@ -134,7 +134,7 @@ public class DrawingTest {
 	}
 	
 	@Test 
-	public void printContinousRectangle() {
+	public void printContinousRectangle() throws Exception {
 		Drawing draw = new Drawing();
 		String test1Str = 
 				"----------------------" + NL +
@@ -291,6 +291,22 @@ public class DrawingTest {
 		draw.run(cmd4);
 		
 		Assert.assertEquals(testStr, draw.run(cmd5));
+	}
+	
+	//parameter validations
+	@Test
+	public  void checkCanvasParamters() {
+		Drawing draw = new Drawing();
+		String testStr = "Invalid Parameters";
+		
+		String cmd1 = "C -1 -4";
+		Assert.assertEquals(testStr, draw.run(cmd1));
+		
+		cmd1 = "C A -4";
+		Assert.assertEquals(testStr, draw.run(cmd1));
+		
+		cmd1 = "C 3 4 2";
+		Assert.assertEquals(testStr, draw.run(cmd1));
 	}
 	
 	@Test
