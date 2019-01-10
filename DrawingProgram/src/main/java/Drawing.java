@@ -46,6 +46,11 @@ public class Drawing {
 		} while (p != "q");*/
 	}
 
+	public Canvas createCanvas(int hor, int ver) {
+		Canvas c = new Canvas(hor, ver);
+		return c;
+	}
+
 	/*public void drawLine(int[] lineArray) throws Exception {
 		int startX = 0;
 		int startY = 0;
