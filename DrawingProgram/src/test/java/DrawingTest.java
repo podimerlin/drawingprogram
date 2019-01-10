@@ -213,4 +213,21 @@ public class DrawingTest {
 		
 		Assert.assertEquals(testStr, draw.run(command2));
 	}
+	
+	@Test
+	public void fillEmptyCanvas() {
+		Drawing draw = new Drawing();
+		String testStr = 
+				"--------------------" + "\n" +
+				"|cccccccccccccccccc|" + "\n" +
+				"|cccccccccccccccccc|" + "\n" +
+				"--------------------";
+		testStr = testStr.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
+		String command1 = "C 18 2";
+		draw.run(command1);
+		String[] fillArray = {"1", "1", "c"};
+		draw.floodFill(fillArray);
+		
+		Assert.assertEquals(testStr, draw.printCanvas());
+	}
 }
