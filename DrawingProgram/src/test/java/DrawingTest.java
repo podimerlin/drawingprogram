@@ -230,4 +230,82 @@ public class DrawingTest {
 		
 		Assert.assertEquals(testStr, draw.printCanvas());
 	}
+	
+	@Test
+	public void fillWithinLine() {
+		Drawing draw2 = new Drawing();
+		String testStr = 
+				"--------------------" + "\n" +
+				"|ccx               |" + "\n" +
+				"|ccx               |" + "\n" +
+				"--------------------";
+		testStr = testStr.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
+		String command1 = "C 18 2";
+		draw2.run(command1);
+		String command2 ="L 3 1 3 2";
+		draw2.run(command2);
+		String[] fillArray2 = {"1", "1", "c"};
+		draw2.floodFill(fillArray2);
+		
+		Assert.assertEquals(testStr, draw2.printCanvas());
+	}
+	
+	@Test
+	public void fillOnLine() {
+		Drawing draw2 = new Drawing();
+		String testStr = 
+				"--------------------" + "\n" +
+				"|  x               |" + "\n" +
+				"|  x               |" + "\n" +
+				"--------------------";
+		testStr = testStr.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
+		String command1 = "C 18 2";
+		draw2.run(command1);
+		String command2 ="L 3 1 3 2";
+		draw2.run(command2);
+		String[] fillArray2 = {"3", "1", "c"};
+		draw2.floodFill(fillArray2);
+		
+		Assert.assertEquals(testStr, draw2.printCanvas());
+	}
+	
+	@Test
+	public void callFillCommandOnEmptyCanvas() {
+		Drawing draw = new Drawing();
+		String testStr = 
+				"--------------------" + "\n" +
+				"|cccccccccccccccccc|" + "\n" +
+				"|cccccccccccccccccc|" + "\n" +
+				"--------------------";
+		testStr = testStr.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
+		String command1 = "C 18 2";
+		draw.run(command1);
+		String command2 = "B 1 1 c";
+		
+		Assert.assertEquals(testStr, draw.run(command2));
+	}
+	
+	@Test 
+	public void callFillCommandWithExistingLines() {
+		Drawing draw = new Drawing();
+		String testStr =
+				"----------------------" + "\n" +
+				"|oooooooooooooxxxxxoo|" + "\n" +
+				"|xxxxxxooooooox   xoo|" + "\n" +
+				"|     xoooooooxxxxxoo|" + "\n" +
+				"|     xoooooooooooooo|" + "\n" +
+				"----------------------";
+		testStr = testStr.replaceAll("\\n|\\r\\n", System.getProperty("line.separator"));
+		String cmd1 = "C 20 4";
+		String cmd2 = "L 1 2 6 2";
+		String cmd3 = "L 6 3 6 4";
+		String cmd4 = "R 14 1 18 3";
+		String cmd5 = "B 10 3 o";
+		draw.run(cmd1);
+		draw.run(cmd2);
+		draw.run(cmd3);
+		draw.run(cmd4);
+		
+		Assert.assertEquals(testStr, draw.run(cmd5));
+	}
 }

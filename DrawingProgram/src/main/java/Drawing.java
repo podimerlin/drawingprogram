@@ -166,7 +166,7 @@ public class Drawing {
 		String method = command[0];
 		String[] lineArray = new String[command.length-1];
 		System.arraycopy(command, 1, lineArray, 0, command.length-1);
-		int[] inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
+		int[] inputs;
 		
 		switch (method) {
 			case "C":
@@ -176,17 +176,32 @@ public class Drawing {
 				
 			case "L":
 			case "l":
-				this.drawLine(inputs);
+				try {
+    				inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
+    				this.drawLine(inputs);
+				} catch (NumberFormatException nfe) {
+					return "Invalid parameters";
+				}
 				break;
 				
 			case "R":
 			case "r":
-				this.drawRectangle(inputs);
+				try {
+					inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
+					this.drawRectangle(inputs);
+				}  catch (NumberFormatException nfe) {
+					return "Invalid parameters";
+				}
 				break;	
 				
 			case "Q":
 			case "q":
 				return "q";
+				
+			case "B":
+			case "b":
+				this.floodFill(lineArray);
+				break;
 			default:
 				return "Command not available";
 		}
@@ -211,9 +226,16 @@ public class Drawing {
 		}
 		
 		Queue<Integer[]> queue = new LinkedList<Integer[]>();
-		Integer[] first = {x, y};
-		canvas[first[0]][first[1]] = fill;
-	    queue.add(first);
+		Integer[] first = {y, x};
+		try {
+    		if (canvas[first[0]][first[1]] == ' ') {
+    			canvas[first[0]][first[1]] = fill;
+    	    	queue.add(first);
+    		}
+		} catch (ArrayIndexOutOfBoundsException aio) {
+			//out of canvas
+			return;
+		}
 
 	    //[ver][hor]
 	    while (!queue.isEmpty()) 
