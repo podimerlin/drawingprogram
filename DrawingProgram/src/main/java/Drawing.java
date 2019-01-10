@@ -12,6 +12,21 @@ public class Drawing {
 	
 	final String NL = System.getProperty("line.separator"); 
 	private Character canvas[][];
+
+	final String commandNotAvail = "Command not Available" + NL + 
+									"Use the following commands: " + NL +
+									"Command 		Description " + NL +
+									"C w h\t\t\t\t\t Should create a new canvas of width w and height h." + NL +
+"L x1 y1 x2 y2\t\t\t\t\t Should create a new line from (x1,y1) to (x2,y2). Currently only" + NL +
+                "\t\t\t\t\t\t\t horizontal or vertical lines are supported. Horizontal and vertical lines" + NL +
+                "\t\t\t\t\t\t\t will be drawn using the 'x' character." + NL +
+"R x1 y1 x2 y2\t\t\t\t\t Should create a new rectangle, whose upper left corner is (x1,y1) and" + NL +
+                "\t\t\t\t\t\t\t lower right corner is (x2,y2). Horizontal and vertical lines will be drawn" + NL +
+                "\t\t\t\t\t\t\t using the 'x' character." + NL +
+"B x y c\t\t\t\t\t Should fill the entire area connected to (x,y) with \"colour\" c. The" + NL +
+                " \t\t\t\t\t\t\t behaviour of this is the same as that of the \"bucket fill\" tool in paint" + NL +
+                " \t\t\t\t\t\t\t programs." + NL +
+"Q\t\t\t\t\tShould quit the program.";
 	
 	public Drawing() {
 		
@@ -203,7 +218,7 @@ public class Drawing {
 				this.floodFill(lineArray);
 				break;
 			default:
-				return "Command not available";
+				return commandNotAvail;
 		}
 		return printCanvas();
 	}
