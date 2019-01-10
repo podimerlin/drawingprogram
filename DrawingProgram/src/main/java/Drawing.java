@@ -9,9 +9,7 @@ import java.util.stream.IntStream;
 
 public class Drawing {
 	
-	
 	final String NL = System.getProperty("line.separator"); 
-	private Character canvas[][];
 
 	final String ERROR_COMMAND_NOT_AVAIL = "Command not Available" + NL + 
 									"Use the following commands: " + NL +
@@ -38,56 +36,17 @@ public class Drawing {
 		Drawing draw = new Drawing();
 		String p = "";
 		Scanner sc = new Scanner(System.in);
-		do {
+		/*do {
 			System.out.println("enter command: ");
 			String command = sc.nextLine();
 			p = draw.run(command);
 			if (p != "q") {
 				System.out.println(p);
 			}
-		} while (p != "q");
-	}
-	
-	public String printCanvas() {
-		StringBuffer ret = new StringBuffer();
-		String s = "-";
-		int horizontalLength = 2;
-		if (canvas != null) {
-			horizontalLength += canvas[0].length;
-		}
-		String outlineX = IntStream.range(0, horizontalLength).mapToObj(i -> s).collect(Collectors.joining(""));
-		ret.append(outlineX).append(NL);
-		
-		if (canvas != null) {
-			for (int i=0; i<canvas.length; i++) {
-				if (i > 0) {
-					ret.append(NL);
-				}
-				ret.append("|");
-				//print inner
-				for (int j=0; j<canvas[i].length; j++) {
-					ret.append(canvas[i][j]);
-				}
-				ret.append("|");
-			}
-			ret.append(NL);
-		}
-		
-		ret.append(outlineX);
-		
-		return ret.toString();
+		} while (p != "q");*/
 	}
 
-	public void createCanvas(int hor, int ver) {
-		canvas = new Character[ver][hor];
-		for (int i=0; i<canvas.length; i++) {
-			for (int j=0; j<canvas[i].length; j++) {
-				canvas[i][j] = ' ';
-			}
-		}
-	}
-
-	public void drawLine(int[] lineArray) throws Exception {
+	/*public void drawLine(int[] lineArray) throws Exception {
 		int startX = 0;
 		int startY = 0;
 		int endX = 0;
@@ -309,7 +268,7 @@ public class Drawing {
 	       }             
 	    }
 		
-	}
+	}*/
 
 
 }
