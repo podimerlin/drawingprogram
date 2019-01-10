@@ -20,9 +20,9 @@ public class Drawing {
 	public static void main(String[] args) {
 		Drawing draw = new Drawing();
 		String p = "";
+		Scanner sc = new Scanner(System.in);
 		do {
 			System.out.println("enter command: ");
-			Scanner sc = new Scanner(System.in);
 			String command = sc.nextLine();
 			p = draw.run(command);
 			if (p != "q") {
