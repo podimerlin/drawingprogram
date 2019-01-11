@@ -51,58 +51,7 @@ public class Drawing {
 		return c;
 	}
 
-	/*public void drawLine(int[] lineArray) throws Exception {
-		int startX = 0;
-		int startY = 0;
-		int endX = 0;
-		int endY = 0;
-		try {
-			startX = lineArray[0] - 1;
-			startY = lineArray[1] - 1;
-			endX = lineArray[2] - 1;
-			endY = lineArray[3] - 1;
-		} catch (NullPointerException npe) {
-			throw new Exception("invalid param");
-		}
-		
-		try {
-			char check1 = canvas[startY][startX];
-			char check2 = canvas[endY][endX];
-		} catch (ArrayIndexOutOfBoundsException ae) {
-			throw new Exception("not within canvas");
-		}
-		
-		
-		if (startX == endX) {
-			//vertical
-			if (startY < endY) {
-				for (int y = startY; y<=endY; y++) {
-					canvas[y][startX] = 'x';
-				}
-			} else {
-				for (int y = startY; y>=endY; y--) {
-					canvas[y][startX] = 'x';
-				}
-			}
-			
-		}
-		
-		if (startY == endY) {
-			//horizontal
-			if (startX < endX) {
-				for (int x = startX; x<=endX; x++) {
-					canvas[startY][x] = 'x';
-				}
-			} else {
-				for (int x = startX; x>=endX; x--) {
-					System.out.println(x);
-					canvas[startY][x] = 'x';
-				}
-			}
-		}
-		
-	}
-
+	/*
 	public void drawRectangle(int[] rectArray) throws Exception {
 		int topLX = 0;
 		int topLY = 0;

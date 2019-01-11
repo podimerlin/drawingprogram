@@ -8,21 +8,6 @@ import main.java.Drawing;
 public class DrawingTest {
 	final String NL = System.getProperty("line.separator");
 	
-	@Test
-	public void drawCanvas() {
-		Drawing draw = new Drawing();
-		String testStr = 
-				"----------------------" + NL +
-				"|                    |" + NL +
-				"|                    |" + NL +
-				"|                    |" + NL +
-				"|                    |" + NL +
-				"----------------------";
-		
-		Assert.assertNotNull(draw.createCanvas(20, 4));
-		Assert.assertEquals(testStr, draw.createCanvas(20, 4).printCanvas());
-	}
-	
 	/*@Test
 	public void printLine() throws Exception {
 		//L x1 y1 x2 y2

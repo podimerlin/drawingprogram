@@ -1,5 +1,7 @@
 package main.java;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -7,6 +9,7 @@ public class Canvas {
 	
 	private Character canvas[][];
 	final String NL = System.getProperty("line.separator"); 
+	private List<Shape> shapeList = new ArrayList<>();
 	
 	public Canvas() {
 		
@@ -20,8 +23,27 @@ public class Canvas {
 			}
 		}
 	}
+	
+	public Character[][] getCanvas() {
+		return canvas;
+	}
+
+	public void setCanvas(Character[][] canvas) {
+		this.canvas = canvas;
+	}
+
+	public List<Shape> getShapeList() {
+		return shapeList;
+	}
+
+	public void setShapeList(List<Shape> shapeList) {
+		this.shapeList = shapeList;
+	}
 
 	public String printCanvas() {
+		
+		drawShapeInCanvas();
+		
 		StringBuffer ret = new StringBuffer();
 		String s = "-";
 		int horizontalLength = 2;
@@ -50,12 +72,24 @@ public class Canvas {
 		
 		return ret.toString();
 	}
-
-	public Character[][] getCanvas() {
-		return canvas;
+	
+	public void drawShapeInCanvas() {
+		for(Shape s : shapeList) {
+    		for (Point p : s.getStroke()) {
+    			canvas[p.getY()-1][p.getX()-1] = 'x';
+    		}
+		}
 	}
-
-	public void setCanvas(Character[][] canvas) {
-		this.canvas = canvas;
+	
+	public void addShape(char c , int[] inputArray) {
+		Shape s = null;
+		switch(c) {
+			case 'L': 
+				s = new Line(inputArray);
+				break;
+			default:
+				break;
+		}
+		shapeList.add(s);
 	}
 }
