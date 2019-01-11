@@ -1,14 +1,13 @@
-package main.java;
+package main.java.domain;
 
 public class Line extends Shape{
 
 	public Line(int[] inputArray) {
 		super(inputArray);
-		draw();
 	}
 
 	@Override
-	public void draw() {
+	public void init() {
 		if (getStartX() == getEndX()) {
 			//vertical
 			if (getStartY() < getEndY()) {

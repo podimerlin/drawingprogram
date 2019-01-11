@@ -1,4 +1,4 @@
-package main.java;
+package main.java.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,7 @@ public abstract class Shape {
 		startY = inputArray[1];
 		endX = inputArray[2];
 		endY = inputArray[3];
+		init();
 	}
 	
 	public int getStartX() {
@@ -52,6 +53,6 @@ public abstract class Shape {
 		stroke.add(p);
 	}
 	
-	public abstract void draw();
+	public abstract void init();
 	
 }

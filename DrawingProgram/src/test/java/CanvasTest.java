@@ -32,13 +32,41 @@ public class CanvasTest {
 	}
 	
 	@Test
+	public void createCanvasWithInput() {
+		Canvas canvas = new Canvas();
+		int[] inputArray = {20, 4};
+		canvas.setCanvasByInput(inputArray);
+		
+		String canvasStr = 
+				"----------------------" + NL +
+				"|                    |" + NL +
+				"|                    |" + NL +
+				"|                    |" + NL +
+				"|                    |" + NL +
+				"----------------------";
+		Assert.assertNotNull(canvas.getCanvas());
+		Assert.assertEquals(canvasStr, canvas.printCanvas());
+	}
+	
+	@Test
 	public void createShape() {
-		Canvas c = new Canvas();
+		Canvas c = new Canvas(20, 4);
 		char shape = 'L';
 		int[] inputArray = {1, 2, 6, 2};
 		c.addShape(shape, inputArray);
 		
 		Assert.assertTrue(!c.getShapeList().isEmpty());
+		
+		c.addShape(shape, inputArray);
+		Assert.assertEquals(2, c.getShapeList().size());
+	}
+	
+	public void checkDontAddShapeIfDoesntFitInCanvas() {
+		Canvas c = new Canvas(1, 1);
+		char shape = 'L';
+		int[] inputArray = {1, 2, 6, 2};
+		c.addShape(shape, inputArray);
+		Assert.assertTrue(c.getShapeList().isEmpty());
 	}
 	
 	@Test
@@ -101,11 +129,24 @@ public class CanvasTest {
 		
 		Canvas c = new Canvas(20 , 4);
 		char shape = 'R';
-		int[] inputArray = {14, 1, 18, 3};
+		int[] inputArray = {18, 1, 14, 3};
 		
 		c.addShape(shape, inputArray);
 		
 		Assert.assertEquals(test1Str, c.printCanvas());
+		
+		String test2Str = 
+				"----------------------" + NL +
+				"|xxxxxxxxxxxxxxxxxx  |" + NL +
+				"|x                x  |" + NL +
+				"|x                x  |" + NL +
+				"|xxxxxxxxxxxxxxxxxx  |" + NL +
+				"----------------------";
+		c = new Canvas(20 , 4);
+		int[] inputArray2 = {1, 1, 18, 4};
+		
+		c.addShape(shape, inputArray2);
+		Assert.assertEquals(test2Str, c.printCanvas());
 		
 	}
 }

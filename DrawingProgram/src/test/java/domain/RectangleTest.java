@@ -1,4 +1,4 @@
-package test.java;
+package test.java.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.Point;
-import main.java.Rectangle;
+import main.java.domain.Point;
+import main.java.domain.Rectangle;
 
 public class RectangleTest {
 	@Test
@@ -33,7 +33,7 @@ public class RectangleTest {
 	*/
 	
 	@Test
-	public void checkHorizontalLine() {
+	public void checkPerimeterLines() {
 		int[] rectArray = {14, 1, 18, 3};
 		Rectangle rect = new Rectangle(rectArray);
 		List<Integer> xArr = new ArrayList<>();

@@ -1,10 +1,10 @@
-package test.java;
+package test.java.domain;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.Line;
-import main.java.Point;
+import main.java.domain.Line;
+import main.java.domain.Point;
 
 public class LineTest {
 	@Test

@@ -1,14 +1,13 @@
-package main.java;
+package main.java.domain;
 
 public class Rectangle extends Shape{
 	
 	public Rectangle(int[] rectArray) {
 		super(rectArray);
-		draw();
 	}
 
 	@Override
-	public void draw() {
+	public void init() {
 		
 		//drawing horizontals
 		if (getStartX() < getEndX()) {
