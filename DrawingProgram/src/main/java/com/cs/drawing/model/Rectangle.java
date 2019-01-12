@@ -2,6 +2,11 @@ package main.java.com.cs.drawing.model;
 
 import main.java.com.cs.drawing.service.ShapeService;
 
+/*
+ * Should create a new rectangle, whose upper left corner is (x1,y1) and
+ * lower right corner is (x2,y2). Horizontal and vertical lines will be drawn
+ * using the 'x' character. 
+ */
 public class Rectangle extends Shape implements ShapeService{
 	
 	public Rectangle(int[] rectArray) {

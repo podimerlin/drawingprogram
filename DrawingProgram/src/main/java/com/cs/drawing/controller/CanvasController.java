@@ -5,6 +5,9 @@ import java.util.List;
 
 import main.java.com.cs.drawing.util.StringConstants;
 
+/*
+ * Determines Canvas commands from user input
+ */
 public class CanvasController {
 	
 	Canvas canvas;

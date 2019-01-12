@@ -14,6 +14,9 @@ import main.java.com.cs.drawing.model.Shape;
 import main.java.com.cs.drawing.service.ShapeService;
 import main.java.com.cs.drawing.util.StringConstants;
 
+/*
+ * Canvas drawing here 
+ */
 public class Canvas {
 	
 	private Character canvas[][];

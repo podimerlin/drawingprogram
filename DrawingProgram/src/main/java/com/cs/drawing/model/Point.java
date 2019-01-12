@@ -1,5 +1,8 @@
 package main.java.com.cs.drawing.model;
 
+/*
+ * Contains x y location on the canvas
+ */
 public class Point {
 	private int x;
 	private int y;

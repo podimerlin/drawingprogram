@@ -6,6 +6,9 @@ import java.util.List;
 import main.java.com.cs.drawing.service.ShapeService;
 import main.java.com.cs.drawing.util.StringConstants;
 
+/*
+ * Base properties and functions of a shape object
+ */
 public abstract class Shape implements ShapeService {
 	private int startX;
 	private int startY;
