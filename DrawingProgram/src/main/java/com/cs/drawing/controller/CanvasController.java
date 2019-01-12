@@ -46,9 +46,13 @@ public class CanvasController {
 	
 	private void addShape(String shape, int[] inputs) throws Exception {
 		List<String> shapesCmd = Arrays.asList(StringConstants.SHAPES_COMMAND.getValue().split(","));
-		if (shapesCmd.contains(shape.toUpperCase())) {
-			canvas.addShape(shape.charAt(0), inputs);
-		} else {
+		try {
+			if (shapesCmd.contains(shape.toUpperCase())) {
+				canvas.addShape(shape.charAt(0), inputs);
+			} else {
+				throw new Exception(StringConstants.ERROR_COMMAND_NOT_AVAI.getValue());
+			}
+		} catch (Exception e) {
 			throw new Exception(StringConstants.ERROR_COMMAND_NOT_AVAI.getValue());
 		}
 	}

@@ -7,11 +7,11 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import main.java.com.cs.drawing.domain.Line;
-import main.java.com.cs.drawing.domain.Point;
-import main.java.com.cs.drawing.domain.Rectangle;
-import main.java.com.cs.drawing.domain.Shape;
-import main.java.com.cs.drawing.domain.IRender;
+import main.java.com.cs.drawing.model.IRender;
+import main.java.com.cs.drawing.model.Line;
+import main.java.com.cs.drawing.model.Point;
+import main.java.com.cs.drawing.model.Rectangle;
+import main.java.com.cs.drawing.model.Shape;
 import main.java.com.cs.drawing.util.StringConstants;
 
 public class Canvas {

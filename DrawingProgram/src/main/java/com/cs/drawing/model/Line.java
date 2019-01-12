@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.domain;
+package main.java.com.cs.drawing.model;
 
 public class Line extends Shape implements IRender{
 

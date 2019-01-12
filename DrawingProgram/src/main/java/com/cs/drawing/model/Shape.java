@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.domain;
+package main.java.com.cs.drawing.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ public abstract class Shape implements IRender {
 	private int startY;
 	private int endX;
 	private int endY;
-	private List<Point> stroke = new ArrayList<>();;
+	private List<Point> stroke = new ArrayList<>();
 	
 	public Shape(int[] inputArray) {
 		startX = inputArray[0];
