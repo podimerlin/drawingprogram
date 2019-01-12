@@ -11,7 +11,7 @@ import main.java.com.cs.drawing.domain.Line;
 import main.java.com.cs.drawing.domain.Point;
 import main.java.com.cs.drawing.domain.Rectangle;
 import main.java.com.cs.drawing.domain.Shape;
-import main.java.com.cs.drawing.domain.IShape;
+import main.java.com.cs.drawing.domain.IRender;
 import main.java.com.cs.drawing.util.StringConstants;
 
 public class Canvas {
@@ -28,19 +28,9 @@ public class Canvas {
 		fillCanvas();
 	}
 	
-	public void setCanvasByInput(int[] inputArray) {
+	public Canvas(int[] inputArray) {
 		canvas = new Character[inputArray[1]][inputArray[0]];
 		fillCanvas();
-	}
-	
-	private void fillCanvas() {
-		if (canvas != null) {
-			for (int i=0; i<canvas.length; i++) {
-				for (int j=0; j<canvas[i].length; j++) {
-					canvas[i][j] = StringConstants.BLANK.getValue().charAt(0);
-				}
-			}
-		}
 	}
 	
 	public Character[][] getCanvas() {
@@ -57,6 +47,17 @@ public class Canvas {
 
 	public void setShapeList(List<Shape> shapeList) {
 		this.shapeList = shapeList;
+	}
+	
+	
+	private void fillCanvas() {
+		if (canvas != null) {
+			for (int i=0; i<canvas.length; i++) {
+				for (int j=0; j<canvas[i].length; j++) {
+					canvas[i][j] = StringConstants.BLANK.getValue().charAt(0);
+				}
+			}
+		}
 	}
 
 	public String printCanvas() {
@@ -92,7 +93,8 @@ public class Canvas {
 	}
 	
 	private void drawShapeInCanvas() {		
-		for(Shape s : shapeList) {			
+		for(Shape s : shapeList) {
+			s.render();
     		for (Point p : s.getStroke()) {
     				if (canvas[p.getY()-1][p.getX()-1] == StringConstants.BLANK.getValue().charAt(0)) {
     					canvas[p.getY()-1][p.getX()-1] = StringConstants.STROKE.getValue().charAt(0);

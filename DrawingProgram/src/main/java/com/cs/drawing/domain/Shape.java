@@ -3,7 +3,7 @@ package main.java.com.cs.drawing.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Shape implements IShape {
+public abstract class Shape implements IRender {
 	private int startX;
 	private int startY;
 	private int endX;
@@ -15,7 +15,6 @@ public abstract class Shape implements IShape {
 		startY = inputArray[1];
 		endX = inputArray[2];
 		endY = inputArray[3];
-		init();
 	}
 	
 	public int getStartX() {
@@ -66,7 +65,5 @@ public abstract class Shape implements IShape {
 		Point p = new Point(x, y);
 		stroke.add(p);
 	}
-	
-	public abstract void init();
 	
 }

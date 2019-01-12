@@ -1,13 +1,13 @@
 package main.java.com.cs.drawing.domain;
 
-public class Rectangle extends Shape implements IShape{
+public class Rectangle extends Shape implements IRender{
 	
 	public Rectangle(int[] rectArray) {
 		super(rectArray);
 	}
 
 	@Override
-	public void init() {
+	public void render() {
 		//drawing horizontals
 		if (getStartX() < getEndX()) {
 			for (int x = getStartX(); x<=getEndX(); x++) {
@@ -33,7 +33,6 @@ public class Rectangle extends Shape implements IShape{
 				appendStroke(getEndX(), y);
 			}
 		}
-		
 	}
 
 }

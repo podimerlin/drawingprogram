@@ -1,12 +1,14 @@
 package main.java.com.cs.drawing.controller;
 
 import java.util.Arrays;
+import java.util.List;
 
 import main.java.com.cs.drawing.util.StringConstants;
 
 public class CanvasController {
 	
 	Canvas canvas;
+	
 	
 	public String run(String commandStr) {
 		String command[] = commandStr.split(" ");
@@ -20,30 +22,35 @@ public class CanvasController {
 			case "C":
 			case "c":
 				inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
-				canvas = new Canvas();
-				canvas.setCanvasByInput(inputs);
+				canvas = new Canvas(inputs);
 				break;
-			//add shapes
-			case "L":
-			case "l":
-			case "R":
-			case "r":
-				inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
-				canvas.addShape(method.charAt(0), inputs);	
-				break;	
-				
 			case "Q":
 			case "q":
 				return "q";
-				
 			case "B":
 			case "b":
 				canvas.fillCanvas(lineArray);
 				break;
+			//add shapes
 			default:
-				return StringConstants.ERROR_COMMAND_NOT_AVAI.getValue();
+				inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
+				try {
+					addShape(method, inputs);
+				} catch (Exception e) {
+					//invalid command
+					return e.getMessage();
+				}
 		}
 		return canvas.printCanvas();
+	}
+	
+	private void addShape(String shape, int[] inputs) throws Exception {
+		List<String> shapesCmd = Arrays.asList(StringConstants.SHAPES_COMMAND.getValue().split(","));
+		if (shapesCmd.contains(shape.toUpperCase())) {
+			canvas.addShape(shape.charAt(0), inputs);
+		} else {
+			throw new Exception(StringConstants.ERROR_COMMAND_NOT_AVAI.getValue());
+		}
 	}
 	
 }

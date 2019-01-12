@@ -1,13 +1,13 @@
 package main.java.com.cs.drawing.domain;
 
-public class Line extends Shape implements IShape{
+public class Line extends Shape implements IRender{
 
 	public Line(int[] inputArray) {
 		super(inputArray);
 	}
 
 	@Override
-	public void init() {
+	public void render() {
 		if (getStartX() == getEndX()) {
 			//vertical
 			if (getStartY() < getEndY()) {
@@ -34,5 +34,4 @@ public class Line extends Shape implements IShape{
 			}
 		}
 	}
-
 }

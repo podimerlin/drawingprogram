@@ -34,9 +34,8 @@ public class CanvasTest {
 	
 	@Test
 	public void createCanvasWithInput() {
-		Canvas canvas = new Canvas();
 		int[] inputArray = {20, 4};
-		canvas.setCanvasByInput(inputArray);
+		Canvas canvas = new Canvas(inputArray);
 		
 		String canvasStr = 
 				"----------------------" + NL +
@@ -87,7 +86,6 @@ public class CanvasTest {
 		c.addShape(shape, inputArray);
 		
 		Assert.assertEquals(1, c.getShapeList().size());
-		Assert.assertEquals(6, c.getShapeList().get(0).getStroke().size());
 		Assert.assertEquals(test1Str, c.printCanvas());
 		
 		String test2Str = 

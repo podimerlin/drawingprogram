@@ -7,7 +7,8 @@ public enum StringConstants {
 	HORIZONTAL_OUTLINE("-"), 
 	VERTICAL_OUTLINE("|"), 
 	STROKE("x"), 
-	BLANK(" ");
+	BLANK(" "),
+	SHAPES_COMMAND("L,R");
 	
 	String value;
 
