@@ -18,5 +18,6 @@ public class Drawing {
 				System.out.println(p);
 			}
 		} while (p != "q");
+		System.out.println("Quitting...");
 	}
 }
