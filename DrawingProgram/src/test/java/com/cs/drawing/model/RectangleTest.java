@@ -36,7 +36,7 @@ public class RectangleTest {
 	public void checkPerimeterLines() {
 		int[] rectArray = {14, 1, 18, 3};
 		Rectangle rect = new Rectangle(rectArray);
-		rect.render();
+		rect.renderStrokes();
 		List<Integer> xArr = new ArrayList<>();
 		List<Integer> yArr = new ArrayList<>();
 

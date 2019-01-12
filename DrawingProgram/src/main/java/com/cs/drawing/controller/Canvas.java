@@ -7,17 +7,17 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import main.java.com.cs.drawing.model.IRender;
 import main.java.com.cs.drawing.model.Line;
 import main.java.com.cs.drawing.model.Point;
 import main.java.com.cs.drawing.model.Rectangle;
 import main.java.com.cs.drawing.model.Shape;
+import main.java.com.cs.drawing.service.ShapeService;
 import main.java.com.cs.drawing.util.StringConstants;
 
 public class Canvas {
 	
 	private Character canvas[][];
-	private List<Shape> shapeList = new ArrayList<>();
+	private List<ShapeService> shapeList = new ArrayList<>();
 	
 	public Canvas() {
 		
@@ -41,11 +41,11 @@ public class Canvas {
 		this.canvas = canvas;
 	}
 
-	public List<Shape> getShapeList() {
+	public List<ShapeService> getShapeList() {
 		return shapeList;
 	}
 
-	public void setShapeList(List<Shape> shapeList) {
+	public void setShapeList(List<ShapeService> shapeList) {
 		this.shapeList = shapeList;
 	}
 	
@@ -93,13 +93,9 @@ public class Canvas {
 	}
 	
 	private void drawShapeInCanvas() {		
-		for(Shape s : shapeList) {
-			s.render();
-    		for (Point p : s.getStroke()) {
-    				if (canvas[p.getY()-1][p.getX()-1] == StringConstants.BLANK.getValue().charAt(0)) {
-    					canvas[p.getY()-1][p.getX()-1] = StringConstants.STROKE.getValue().charAt(0);
-    				}
-    		}
+		for(ShapeService s : shapeList) {
+			s.renderStrokes();
+    		s.drawOntoCanvas(canvas);
 		}
 	}
 	

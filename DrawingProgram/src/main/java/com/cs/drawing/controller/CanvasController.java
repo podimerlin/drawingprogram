@@ -45,6 +45,9 @@ public class CanvasController {
 	}
 	
 	private void addShape(String shape, int[] inputs) throws Exception {
+		if (canvas == null) {
+			throw new Exception(StringConstants.ERROR_NO_CANVAS.getValue());
+		}
 		List<String> shapesCmd = Arrays.asList(StringConstants.SHAPES_COMMAND.getValue().split(","));
 		try {
 			if (shapesCmd.contains(shape.toUpperCase())) {

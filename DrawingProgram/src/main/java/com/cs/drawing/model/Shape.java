@@ -3,7 +3,10 @@ package main.java.com.cs.drawing.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Shape implements IRender {
+import main.java.com.cs.drawing.service.ShapeService;
+import main.java.com.cs.drawing.util.StringConstants;
+
+public abstract class Shape implements ShapeService {
 	private int startX;
 	private int startY;
 	private int endX;
@@ -64,6 +67,14 @@ public abstract class Shape implements IRender {
 	public void appendStroke(int x,  int y) {
 		Point p = new Point(x, y);
 		stroke.add(p);
+	}
+	
+	public void drawOntoCanvas(Character[][] canvas) {
+		for (Point p : stroke) {
+			if (canvas[p.getY()-1][p.getX()-1] == StringConstants.BLANK.getValue().charAt(0)) {
+				canvas[p.getY()-1][p.getX()-1] = StringConstants.STROKE.getValue().charAt(0);
+			}
+		}
 	}
 	
 }

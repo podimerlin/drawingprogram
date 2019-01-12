@@ -1,13 +1,15 @@
 package main.java.com.cs.drawing.model;
 
-public class Line extends Shape implements IRender{
+import main.java.com.cs.drawing.service.ShapeService;
+
+public class Line extends Shape implements ShapeService{
 
 	public Line(int[] inputArray) {
 		super(inputArray);
 	}
 
 	@Override
-	public void render() {
+	public void renderStrokes() {
 		if (getStartX() == getEndX()) {
 			//vertical
 			if (getStartY() < getEndY()) {

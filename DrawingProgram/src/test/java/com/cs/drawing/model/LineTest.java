@@ -23,7 +23,7 @@ public class LineTest {
 	public void checkHorizontalLine() {
 		int[] lineArray = {1, 2, 6, 2};
 		Line line = new Line(lineArray);
-		line.render();
+		line.renderStrokes();
 		
 		Assert.assertEquals(6, line.getStroke().size());
 		for (Point p : line.getStroke()) {
@@ -35,7 +35,7 @@ public class LineTest {
 	public void checkVerticalLine() {
 		int[] lineArray = {4, 2, 4, 10};
 		Line line = new Line(lineArray);
-		line.render();
+		line.renderStrokes();
 		Assert.assertEquals(9, line.getStroke().size());
 		for (Point p : line.getStroke()) {
 			Assert.assertEquals(4, p.getX());

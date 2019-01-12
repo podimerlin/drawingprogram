@@ -1,13 +1,15 @@
 package main.java.com.cs.drawing.model;
 
-public class Rectangle extends Shape implements IRender{
+import main.java.com.cs.drawing.service.ShapeService;
+
+public class Rectangle extends Shape implements ShapeService{
 	
 	public Rectangle(int[] rectArray) {
 		super(rectArray);
 	}
 
 	@Override
-	public void render() {
+	public void renderStrokes() {
 		//drawing horizontals
 		if (getStartX() < getEndX()) {
 			for (int x = getStartX(); x<=getEndX(); x++) {

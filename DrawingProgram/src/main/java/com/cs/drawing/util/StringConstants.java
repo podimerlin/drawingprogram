@@ -8,7 +8,8 @@ public enum StringConstants {
 	VERTICAL_OUTLINE("|"), 
 	STROKE("x"), 
 	BLANK(" "),
-	SHAPES_COMMAND("L,R");
+	SHAPES_COMMAND("L,R"), 
+	ERROR_NO_CANVAS("Create a canvas first with the command : C [width] [height]");
 	
 	String value;
 
