@@ -1,9 +1,9 @@
-package test.java;
+package test.java.com.cs.drawing.view;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import main.java.Drawing;
+import main.java.com.cs.drawing.view.Drawing;
 
 public class DrawingTest {
 	final String NL = System.getProperty("line.separator");

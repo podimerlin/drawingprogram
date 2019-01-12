@@ -1,4 +1,4 @@
-package test.java.domain;
+package test.java.com.cs.drawing.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.domain.Point;
-import main.java.domain.Rectangle;
+import main.java.com.cs.drawing.domain.Point;
+import main.java.com.cs.drawing.domain.Rectangle;
 
 public class RectangleTest {
 	@Test

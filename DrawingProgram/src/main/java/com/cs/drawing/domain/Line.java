@@ -1,6 +1,6 @@
-package main.java.domain;
+package main.java.com.cs.drawing.domain;
 
-public class Line extends Shape{
+public class Line extends Shape implements ShapeInterface{
 
 	public Line(int[] inputArray) {
 		super(inputArray);
@@ -12,13 +12,11 @@ public class Line extends Shape{
 			//vertical
 			if (getStartY() < getEndY()) {
 				for (int y = getStartY(); y<=getEndY(); y++) {
-					Point p = new Point(getStartX(), y);
-					super.appendStroke(p);
+					appendStroke(getStartX(), y);
 				}
 			} else {
 				for (int y = getStartY(); y>=getEndY(); y--) {
-					Point p = new Point(getStartX(), y);
-					super.appendStroke(p);
+					appendStroke(getStartX(), y);
 				}
 			}
 		}
@@ -27,13 +25,11 @@ public class Line extends Shape{
 			//horizontal
 			if (getStartX() < getEndX()) {
 				for (int x = getStartX(); x<=getEndX(); x++) {
-					Point p = new Point(x, getStartY());
-					super.appendStroke(p);
+					appendStroke(x, getStartY());
 				}
 			} else {
 				for (int x = getStartX(); x>=getEndX(); x--) {
-					Point p = new Point(x, getStartY());
-					super.appendStroke(p);
+					appendStroke(x, getStartY());
 				}
 			}
 		}

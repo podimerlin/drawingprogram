@@ -1,6 +1,8 @@
-package main.java;
+package main.java.com.cs.drawing.view;
 
 import java.util.Scanner;
+
+import main.java.com.cs.drawing.controller.CanvasController;
 
 public class Drawing {
 	

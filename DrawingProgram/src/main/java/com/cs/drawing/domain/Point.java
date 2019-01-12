@@ -1,4 +1,4 @@
-package main.java.domain;
+package main.java.com.cs.drawing.domain;
 
 public class Point {
 	private int x;
@@ -21,6 +21,5 @@ public class Point {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
 	
 }

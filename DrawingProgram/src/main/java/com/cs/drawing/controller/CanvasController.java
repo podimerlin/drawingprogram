@@ -1,8 +1,8 @@
-package main.java;
+package main.java.com.cs.drawing.controller;
 
 import java.util.Arrays;
 
-import main.java.util.constants.StringConstants;
+import main.java.com.cs.drawing.util.StringConstants;
 
 public class CanvasController {
 	

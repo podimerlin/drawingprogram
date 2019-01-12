@@ -1,10 +1,10 @@
-package test.java;
+package test.java.com.cs.drawing.controller;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.CanvasController;
-import main.java.util.constants.StringConstants;
+import main.java.com.cs.drawing.controller.CanvasController;
+import main.java.com.cs.drawing.util.StringConstants;
 
 public class CanvasControllerTest {
 	

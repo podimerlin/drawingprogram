@@ -1,4 +1,4 @@
-package main.java.util.constants;
+package main.java.com.cs.drawing.util;
 
 public enum StringConstants {
 	ERROR_COMMAND_NOT_AVAI("Command not Available"),

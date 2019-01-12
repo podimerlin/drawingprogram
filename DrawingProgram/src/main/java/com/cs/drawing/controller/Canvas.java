@@ -1,4 +1,4 @@
-package main.java;
+package main.java.com.cs.drawing.controller;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -7,11 +7,12 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import main.java.domain.Line;
-import main.java.domain.Point;
-import main.java.domain.Rectangle;
-import main.java.domain.Shape;
-import main.java.util.constants.StringConstants;
+import main.java.com.cs.drawing.domain.Line;
+import main.java.com.cs.drawing.domain.Point;
+import main.java.com.cs.drawing.domain.Rectangle;
+import main.java.com.cs.drawing.domain.Shape;
+import main.java.com.cs.drawing.domain.ShapeInterface;
+import main.java.com.cs.drawing.util.StringConstants;
 
 public class Canvas {
 	
@@ -129,7 +130,7 @@ public class Canvas {
 				s.getStartY() > canvas.length ||
 				s.getStartY() <= 0 ||
 				s.getEndY() > canvas.length ||
-				s.getEndY() <=0 ) {
+				s.getEndY() <= 0 ) {
 			return false;
 		}
 		return true;

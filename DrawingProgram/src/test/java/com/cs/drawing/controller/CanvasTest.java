@@ -1,8 +1,9 @@
-package test.java;
+package test.java.com.cs.drawing.controller;
 
 import org.junit.Assert;
 import org.junit.Test;
-import main.java.Canvas;
+
+import main.java.com.cs.drawing.controller.Canvas;
 
 public class CanvasTest {
 
