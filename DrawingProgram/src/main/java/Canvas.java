@@ -1,7 +1,9 @@
 package main.java;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -88,7 +90,7 @@ public class Canvas {
 		return ret.toString();
 	}
 	
-	public void drawShapeInCanvas() {		
+	private void drawShapeInCanvas() {		
 		for(Shape s : shapeList) {			
     		for (Point p : s.getStroke()) {
     				if (canvas[p.getY()-1][p.getX()-1] == StringConstants.BLANK.getValue().charAt(0)) {
@@ -131,5 +133,83 @@ public class Canvas {
 			return false;
 		}
 		return true;
+	}
+
+	public void fillCanvas(String[] fillArray) {
+		drawShapeInCanvas();
+		int x = 0;
+		int y = 0;
+		Character fill = ' ';
+		
+		try {
+			x = Integer.parseInt(fillArray[0]) - 1;
+			y = Integer.parseInt(fillArray[1]) - 1;
+			fill = fillArray[2].toCharArray()[0];
+			if (x < 0 || y <0) {
+				return;
+			}
+		} catch (Exception e) {
+			//invalid inputs
+			return;
+		}
+		
+		Queue<Integer[]> queue = new LinkedList<Integer[]>();
+		Integer[] first = {y, x};
+		try {
+    		if (canvas[first[0]][first[1]] == ' ') {
+    			canvas[first[0]][first[1]] = fill;
+    	    	queue.add(first);
+    		}
+		} catch (ArrayIndexOutOfBoundsException aio) {
+			//out of canvas
+			return;
+		}
+
+	    //[ver][hor]
+	    while (!queue.isEmpty()) 
+	    {
+	    	Integer[] p = queue.remove();
+        	//left
+    		Integer[] left = {p[0], p[1] - 1};
+    		try {
+    			if (canvas[left[0]][left[1]] == ' ') {
+	    			canvas[left[0]][left[1]] = fill;
+	        		queue.add(left);
+	    		}
+	    	} catch (ArrayIndexOutOfBoundsException aio) {
+	    		//out of canvas
+	    	}
+            //right
+            Integer[] right = {p[0], p[1] + 1};
+            try {
+            	if (canvas[right[0]][right[1]] == ' ') {
+	            	canvas[right[0]][right[1]] = fill;
+	            	queue.add(right);
+	            }
+	           } catch (ArrayIndexOutOfBoundsException aio) {
+	           	//out of canvas
+	           }
+            //top
+            Integer[] top = {p[0]-1, p[1]};
+            try {
+            	if (canvas[top[0]][top[1]] == ' ') {
+	            	canvas[top[0]][top[1]] = fill;
+	            	queue.add(top);
+	            }
+	           } catch (ArrayIndexOutOfBoundsException aio) {
+	           	//out of canvas
+	           }
+            //bot
+            Integer[] bot = {p[0]+1, p[1]};
+            try {
+            	if (canvas[bot[0]][bot[1]] == ' ') {
+	            	canvas[bot[0]][bot[1]] = fill;
+	            	queue.add(bot);
+            	}
+	       } catch (ArrayIndexOutOfBoundsException aio) {
+	       	//out of canvas
+	       }             
+	    }
+		
 	}
 }

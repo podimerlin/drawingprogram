@@ -149,4 +149,35 @@ public class CanvasTest {
 		Assert.assertEquals(test2Str, c.printCanvas());
 		
 	}
+
+	public void fillRectangle() {
+		Canvas c = new Canvas(18 , 2);
+		String[] fillArray = {"1", "1", "c"};
+		c.fillCanvas(fillArray);
+		
+		String testStr = 
+				"--------------------" + NL +
+				"|cccccccccccccccccc|" + NL +
+				"|cccccccccccccccccc|" + NL +
+				"--------------------";
+		
+		Assert.assertEquals(testStr, c.printCanvas());
+		
+	}
+	
+	@Test
+	public void fillWithinLine() {
+		Canvas c = new Canvas(18, 2);
+		String testStr = 
+				"--------------------" + NL +
+				"|ccx               |" + NL +
+				"|ccx               |" + NL +
+				"--------------------";
+		int[] inputArray = {3, 1, 3, 2};
+		c.addShape('l', inputArray);
+		String[] fillArray2 = {"1", "1", "c"};
+		c.fillCanvas(fillArray2);
+		
+		Assert.assertEquals(testStr, c.printCanvas());
+	}
 }

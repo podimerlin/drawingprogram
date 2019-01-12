@@ -34,10 +34,12 @@ public class CanvasController {
 				
 			case "Q":
 			case "q":
-				//quit
+				return "q";
+				
 			case "B":
 			case "b":
-				//this.floodFill(lineArray);
+				canvas.fillCanvas(lineArray);
+				break;
 			default:
 				return StringConstants.ERROR_COMMAND_NOT_AVAI.getValue();
 		}
