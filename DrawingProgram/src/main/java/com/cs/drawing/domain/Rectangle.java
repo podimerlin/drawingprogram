@@ -1,6 +1,6 @@
 package main.java.com.cs.drawing.domain;
 
-public class Rectangle extends Shape implements ShapeInterface{
+public class Rectangle extends Shape implements IShape{
 	
 	public Rectangle(int[] rectArray) {
 		super(rectArray);

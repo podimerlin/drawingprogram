@@ -1,6 +1,6 @@
 package main.java.com.cs.drawing.domain;
 
-public class Line extends Shape implements ShapeInterface{
+public class Line extends Shape implements IShape{
 
 	public Line(int[] inputArray) {
 		super(inputArray);

@@ -2,7 +2,7 @@ package main.java.com.cs.drawing.domain;
 
 import java.util.List;
 
-public interface ShapeInterface {
+public interface IShape {
 
 	int getStartX();
 

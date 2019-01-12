@@ -11,7 +11,7 @@ import main.java.com.cs.drawing.domain.Line;
 import main.java.com.cs.drawing.domain.Point;
 import main.java.com.cs.drawing.domain.Rectangle;
 import main.java.com.cs.drawing.domain.Shape;
-import main.java.com.cs.drawing.domain.ShapeInterface;
+import main.java.com.cs.drawing.domain.IShape;
 import main.java.com.cs.drawing.util.StringConstants;
 
 public class Canvas {

@@ -3,7 +3,7 @@ package main.java.com.cs.drawing.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Shape implements ShapeInterface {
+public abstract class Shape implements IShape {
 	private int startX;
 	private int startY;
 	private int endX;
