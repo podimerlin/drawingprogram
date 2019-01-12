@@ -17,6 +17,9 @@ public abstract class Shape implements ShapeService {
 	private List<Point> stroke = new ArrayList<>();
 	
 	public Shape(int[] inputArray) {
+		if (inputArray.length > 4) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
 		startX = inputArray[0];
 		startY = inputArray[1];
 		endX = inputArray[2];

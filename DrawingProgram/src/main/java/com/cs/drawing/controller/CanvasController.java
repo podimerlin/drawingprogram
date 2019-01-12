@@ -20,34 +20,38 @@ public class CanvasController {
 		System.arraycopy(command, 1, lineArray, 0, command.length-1);
 		int[] inputs;
 		
-		switch (method) {
-			//create canvas
-			case "C":
-			case "c":
-				inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
-				canvas = new Canvas(inputs);
-				break;
-			case "Q":
-			case "q":
-				return "q";
-			case "B":
-			case "b":
-				canvas.fillCanvas(lineArray);
-				break;
-			//add shapes
-			default:
-				inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
-				try {
-					addShape(method, inputs);
-				} catch (Exception e) {
-					//invalid command
-					return e.getMessage();
-				}
+		try {
+			switch (method) {
+				//create canvas
+				case "C":
+				case "c":
+					inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
+					canvas = new Canvas(inputs);
+					break;
+				case "Q":
+				case "q":
+					return "q";
+				case "B":
+				case "b":
+					canvas.fillCanvas(lineArray);
+					break;
+				//add shapes
+				default:
+					inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
+					try {
+						addShape(method, inputs);
+					} catch (Exception e) {
+						//invalid command
+						return e.getMessage();
+					}
+			}
+		} catch (ArrayIndexOutOfBoundsException | NumberFormatException an) {
+			return StringConstants.ERROR_INVALID_PARAM.getValue();
 		}
 		return canvas.printCanvas();
 	}
 	
-	private void addShape(String shape, int[] inputs) throws Exception {
+	private void addShape(String shape, int[] inputs) throws Exception, ArrayIndexOutOfBoundsException {
 		if (canvas == null) {
 			throw new Exception(StringConstants.ERROR_NO_CANVAS.getValue());
 		}

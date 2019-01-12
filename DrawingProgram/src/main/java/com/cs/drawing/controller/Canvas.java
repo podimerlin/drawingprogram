@@ -32,6 +32,9 @@ public class Canvas {
 	}
 	
 	public Canvas(int[] inputArray) {
+		if (inputArray.length > 2) {
+			throw new ArrayIndexOutOfBoundsException();
+		}
 		canvas = new Character[inputArray[1]][inputArray[0]];
 		fillCanvas();
 	}
@@ -150,7 +153,7 @@ public class Canvas {
 			if (x < 0 || y <0) {
 				return;
 			}
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			//invalid inputs
 			return;
 		}
