@@ -1,13 +1,11 @@
 package main.java.com.cs.drawing.model;
 
-import main.java.com.cs.drawing.service.ShapeService;
-
 /*
  * Should create a new line from (x1,y1) to (x2,y2). Currently only
  * horizontal or vertical lines are supported. Horizontal and vertical lines
  * will be drawn using the 'x' character.
  */
-public class Line extends Shape implements ShapeService{
+public class Line extends Shape{
 
 	public Line(int[] inputArray) {
 		super(inputArray);
