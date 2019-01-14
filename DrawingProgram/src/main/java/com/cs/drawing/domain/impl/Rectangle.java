@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.model.impl;
+package main.java.com.cs.drawing.domain.impl;
 
 /*
  * Should create a new rectangle, whose upper left corner is (x1,y1) and

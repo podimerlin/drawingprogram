@@ -1,10 +1,10 @@
-package main.java.com.cs.drawing.model.impl;
+package main.java.com.cs.drawing.domain.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.com.cs.drawing.model.IShape;
-import main.java.com.cs.drawing.model.Point;
+import main.java.com.cs.drawing.domain.IShape;
+import main.java.com.cs.drawing.domain.Point;
 import main.java.com.cs.drawing.util.StringConstants;
 
 /*
