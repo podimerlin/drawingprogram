@@ -7,11 +7,11 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import main.java.com.cs.drawing.impl.IShape;
-import main.java.com.cs.drawing.model.Line;
-import main.java.com.cs.drawing.model.Point;
-import main.java.com.cs.drawing.model.Rectangle;
-import main.java.com.cs.drawing.model.Shape;
+import main.java.com.cs.drawing.model.IShape;
+import main.java.com.cs.drawing.model.impl.Line;
+import main.java.com.cs.drawing.model.impl.Point;
+import main.java.com.cs.drawing.model.impl.Rectangle;
+import main.java.com.cs.drawing.model.impl.Shape;
 import main.java.com.cs.drawing.util.StringConstants;
 
 /*

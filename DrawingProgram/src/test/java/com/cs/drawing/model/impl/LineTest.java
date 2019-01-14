@@ -1,10 +1,10 @@
-package test.java.com.cs.drawing.model;
+package test.java.com.cs.drawing.model.impl;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.com.cs.drawing.model.Line;
-import main.java.com.cs.drawing.model.Point;
+import main.java.com.cs.drawing.model.impl.Line;
+import main.java.com.cs.drawing.model.impl.Point;
 
 public class LineTest {
 	@Test

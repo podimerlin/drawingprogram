@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.model;
+package main.java.com.cs.drawing.model.impl;
 
 /*
  * Should create a new line from (x1,y1) to (x2,y2). Currently only

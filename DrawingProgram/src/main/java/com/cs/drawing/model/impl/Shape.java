@@ -1,9 +1,9 @@
-package main.java.com.cs.drawing.model;
+package main.java.com.cs.drawing.model.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.com.cs.drawing.impl.IShape;
+import main.java.com.cs.drawing.model.IShape;
 import main.java.com.cs.drawing.util.StringConstants;
 
 /*
