@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.java.com.cs.drawing.model.IShape;
+import main.java.com.cs.drawing.model.Point;
 import main.java.com.cs.drawing.util.StringConstants;
 
 /*

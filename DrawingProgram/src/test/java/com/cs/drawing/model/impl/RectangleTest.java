@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.com.cs.drawing.model.impl.Point;
+import main.java.com.cs.drawing.model.Point;
 import main.java.com.cs.drawing.model.impl.Rectangle;
 
 public class RectangleTest {

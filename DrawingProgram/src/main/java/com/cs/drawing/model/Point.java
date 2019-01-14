@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.model.impl;
+package main.java.com.cs.drawing.model;
 
 /*
  * Contains x y location on the canvas
