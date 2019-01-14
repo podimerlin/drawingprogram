@@ -32,6 +32,10 @@ public class CanvasService {
 	}
 	
 	public CanvasService(int[] inputArray) {
+		initCanvas(inputArray);
+	}
+	
+	public void initCanvas(int[] inputArray) {
 		if (inputArray.length > 2) {
 			throw new ArrayIndexOutOfBoundsException();
 		}

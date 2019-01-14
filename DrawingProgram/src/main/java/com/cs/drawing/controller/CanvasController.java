@@ -11,7 +11,7 @@ import main.java.com.cs.drawing.util.StringConstants;
  */
 public class CanvasController {
 	
-	CanvasService canvas;
+	CanvasService canvas = new CanvasService();
 	
 	
 	public String run(String commandStr) {
@@ -27,7 +27,7 @@ public class CanvasController {
 				case "C":
 				case "c":
 					inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
-					canvas = new CanvasService(inputs);
+					canvas.initCanvas(inputs);
 					break;
 				case "Q":
 				case "q":
