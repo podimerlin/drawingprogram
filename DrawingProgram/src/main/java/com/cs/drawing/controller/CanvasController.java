@@ -3,6 +3,7 @@ package main.java.com.cs.drawing.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import main.java.com.cs.drawing.service.CanvasService;
 import main.java.com.cs.drawing.util.StringConstants;
 
 /*
@@ -10,7 +11,7 @@ import main.java.com.cs.drawing.util.StringConstants;
  */
 public class CanvasController {
 	
-	Canvas canvas;
+	CanvasService canvas;
 	
 	
 	public String run(String commandStr) {
@@ -26,7 +27,7 @@ public class CanvasController {
 				case "C":
 				case "c":
 					inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
-					canvas = new Canvas(inputs);
+					canvas = new CanvasService(inputs);
 					break;
 				case "Q":
 				case "q":

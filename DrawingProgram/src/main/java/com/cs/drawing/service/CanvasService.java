@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.controller;
+package main.java.com.cs.drawing.service;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -7,31 +7,31 @@ import java.util.Queue;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import main.java.com.cs.drawing.impl.IShape;
 import main.java.com.cs.drawing.model.Line;
 import main.java.com.cs.drawing.model.Point;
 import main.java.com.cs.drawing.model.Rectangle;
 import main.java.com.cs.drawing.model.Shape;
-import main.java.com.cs.drawing.service.ShapeService;
 import main.java.com.cs.drawing.util.StringConstants;
 
 /*
  * Canvas drawing here 
  */
-public class Canvas {
+public class CanvasService {
 	
 	private Character canvas[][];
-	private List<ShapeService> shapeList = new ArrayList<>();
+	private List<IShape> shapeList = new ArrayList<>();
 	
-	public Canvas() {
+	public CanvasService() {
 		
 	}
 
-	public Canvas(int hor, int ver) {
+	public CanvasService(int hor, int ver) {
 		canvas = new Character[ver][hor];
 		fillCanvas();
 	}
 	
-	public Canvas(int[] inputArray) {
+	public CanvasService(int[] inputArray) {
 		if (inputArray.length > 2) {
 			throw new ArrayIndexOutOfBoundsException();
 		}
@@ -47,11 +47,11 @@ public class Canvas {
 		this.canvas = canvas;
 	}
 
-	public List<ShapeService> getShapeList() {
+	public List<IShape> getShapeList() {
 		return shapeList;
 	}
 
-	public void setShapeList(List<ShapeService> shapeList) {
+	public void setShapeList(List<IShape> shapeList) {
 		this.shapeList = shapeList;
 	}
 	
@@ -99,7 +99,7 @@ public class Canvas {
 	}
 	
 	private void drawShapeInCanvas() {		
-		for(ShapeService s : shapeList) {
+		for(IShape s : shapeList) {
 			s.renderStrokes();
     		s.drawOntoCanvas(canvas);
 		}

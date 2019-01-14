@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.service;
+package main.java.com.cs.drawing.impl;
 
 /**
  * Defines features of Shape Objects
@@ -6,7 +6,7 @@ package main.java.com.cs.drawing.service;
  *
  */
 
-public interface ShapeService {	
+public interface IShape {	
 	void renderStrokes();
 	void drawOntoCanvas(Character[][] canvas);
 }

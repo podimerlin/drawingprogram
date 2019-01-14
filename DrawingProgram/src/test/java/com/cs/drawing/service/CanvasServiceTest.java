@@ -1,16 +1,16 @@
-package test.java.com.cs.drawing.controller;
+package test.java.com.cs.drawing.service;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.java.com.cs.drawing.controller.Canvas;
+import main.java.com.cs.drawing.service.CanvasService;
 
-public class CanvasTest {
+public class CanvasServiceTest {
 
 	final String NL = System.getProperty("line.separator");
 	@Test
 	public void createEmptyCanvas() {
-		Canvas canvas = new Canvas();
+		CanvasService canvas = new CanvasService();
 		String emptyCanvas = 
 				"--" + NL +
 				"--";
@@ -20,7 +20,7 @@ public class CanvasTest {
 	
 	@Test
 	public void createBigCanvas() {
-		Canvas canvas = new Canvas(20 , 4);
+		CanvasService canvas = new CanvasService(20 , 4);
 		String canvasStr = 
 				"----------------------" + NL +
 				"|                    |" + NL +
@@ -35,7 +35,7 @@ public class CanvasTest {
 	@Test
 	public void createCanvasWithInput() {
 		int[] inputArray = {20, 4};
-		Canvas canvas = new Canvas(inputArray);
+		CanvasService canvas = new CanvasService(inputArray);
 		
 		String canvasStr = 
 				"----------------------" + NL +
@@ -50,7 +50,7 @@ public class CanvasTest {
 	
 	@Test
 	public void createShape() {
-		Canvas c = new Canvas(20, 4);
+		CanvasService c = new CanvasService(20, 4);
 		char shape = 'L';
 		int[] inputArray = {1, 2, 6, 2};
 		c.addShape(shape, inputArray);
@@ -62,7 +62,7 @@ public class CanvasTest {
 	}
 	
 	public void checkDontAddShapeIfDoesntFitInCanvas() {
-		Canvas c = new Canvas(1, 1);
+		CanvasService c = new CanvasService(1, 1);
 		char shape = 'L';
 		int[] inputArray = {1, 2, 6, 2};
 		c.addShape(shape, inputArray);
@@ -79,7 +79,7 @@ public class CanvasTest {
 				"|                    |" + NL +
 				"----------------------";
 		
-		Canvas c = new Canvas(20 , 4);
+		CanvasService c = new CanvasService(20 , 4);
 		char shape = 'L';
 		int[] inputArray = {1, 2, 6, 2};
 		
@@ -126,7 +126,7 @@ public class CanvasTest {
 				"|                    |" + NL +
 				"----------------------";
 		
-		Canvas c = new Canvas(20 , 4);
+		CanvasService c = new CanvasService(20 , 4);
 		char shape = 'R';
 		int[] inputArray = {18, 1, 14, 3};
 		
@@ -141,7 +141,7 @@ public class CanvasTest {
 				"|x                x  |" + NL +
 				"|xxxxxxxxxxxxxxxxxx  |" + NL +
 				"----------------------";
-		c = new Canvas(20 , 4);
+		c = new CanvasService(20 , 4);
 		int[] inputArray2 = {1, 1, 18, 4};
 		
 		c.addShape(shape, inputArray2);
@@ -150,7 +150,7 @@ public class CanvasTest {
 	}
 
 	public void fillRectangle() {
-		Canvas c = new Canvas(18 , 2);
+		CanvasService c = new CanvasService(18 , 2);
 		String[] fillArray = {"1", "1", "c"};
 		c.fillCanvas(fillArray);
 		
@@ -166,7 +166,7 @@ public class CanvasTest {
 	
 	@Test
 	public void fillWithinLine() {
-		Canvas c = new Canvas(18, 2);
+		CanvasService c = new CanvasService(18, 2);
 		String testStr = 
 				"--------------------" + NL +
 				"|ccx               |" + NL +

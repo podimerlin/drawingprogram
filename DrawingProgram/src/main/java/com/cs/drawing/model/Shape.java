@@ -3,13 +3,13 @@ package main.java.com.cs.drawing.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.com.cs.drawing.service.ShapeService;
+import main.java.com.cs.drawing.impl.IShape;
 import main.java.com.cs.drawing.util.StringConstants;
 
 /*
  * Base properties and functions of a shape object
  */
-public abstract class Shape implements ShapeService {
+public abstract class Shape implements IShape {
 	private int startX;
 	private int startY;
 	private int endX;
