@@ -1,4 +1,4 @@
-package main.java.com.cs.drawing.controller;
+package main.java.com.cs.drawing;
 
 import java.util.Arrays;
 import java.util.List;

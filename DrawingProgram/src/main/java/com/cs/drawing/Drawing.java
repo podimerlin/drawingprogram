@@ -1,8 +1,6 @@
-package main.java.com.cs.drawing.view;
+package main.java.com.cs.drawing;
 
 import java.util.Scanner;
-
-import main.java.com.cs.drawing.controller.CanvasController;
 
 public class Drawing {
 	
@@ -19,5 +17,7 @@ public class Drawing {
 			}
 		} while (p != "q");
 		System.out.println("Quitting...");
+		sc.close();
+		System.exit(0);
 	}
 }
