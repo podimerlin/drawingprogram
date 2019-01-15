@@ -17,7 +17,7 @@ public abstract class Shape implements IShape {
 	private int endY;
 	private List<Point> stroke = new ArrayList<>();
 	
-	public Shape(int[] inputArray) {
+	public Shape(int[] inputArray) throws ArrayIndexOutOfBoundsException {
 		if (inputArray.length > 4) {
 			throw new ArrayIndexOutOfBoundsException();
 		}

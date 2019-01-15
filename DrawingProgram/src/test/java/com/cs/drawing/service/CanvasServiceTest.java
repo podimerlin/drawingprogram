@@ -2,7 +2,9 @@ package test.java.com.cs.drawing.service;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
+import main.java.com.cs.drawing.domain.impl.Rectangle;
 import main.java.com.cs.drawing.service.CanvasService;
 
 public class CanvasServiceTest {
@@ -46,6 +48,15 @@ public class CanvasServiceTest {
 				"----------------------";
 		Assert.assertNotNull(canvas.getCanvas());
 		Assert.assertEquals(canvasStr, canvas.printCanvas());
+	}
+	
+	@Test
+	public void checkInvalidParams() {
+		int[] inputArray1 = {20};
+		int[] inputArray2 = {20, 4, 5};
+		
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> new Rectangle(inputArray1));
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> new Rectangle(inputArray2));
 	}
 	
 	@Test

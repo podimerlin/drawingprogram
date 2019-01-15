@@ -1,6 +1,7 @@
 package test.java.com.cs.drawing.domain.impl;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.Test;
 
 import main.java.com.cs.drawing.domain.Point;
@@ -17,6 +18,15 @@ public class LineTest {
 		Assert.assertEquals(2, line.getStartY());
 		Assert.assertEquals(6, line.getEndX());
 		Assert.assertEquals(2, line.getEndY());
+	}
+	
+	@Test
+	public void checkInvalidParamsForCreateLine() {
+		int[] lineArray1 = {1, 2, 62};
+		int[] lineArray2 = {1, 2, 6, 5, 2};
+		
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> new Line(lineArray1));
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> new Line(lineArray2));
 	}
 	
 	@Test

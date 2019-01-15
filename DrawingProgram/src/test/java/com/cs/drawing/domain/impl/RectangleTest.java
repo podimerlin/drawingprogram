@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import main.java.com.cs.drawing.domain.Point;
 import main.java.com.cs.drawing.domain.impl.Rectangle;
@@ -21,6 +22,15 @@ public class RectangleTest {
 		Assert.assertEquals(18, rect.getEndX());
 		Assert.assertEquals(3, rect.getEndY());
 		
+	}
+	
+	@Test
+	public void checkInvalidParamsForCreateRectangle() {
+		int[] rectArray1 = {1, 2, 62};
+		int[] rectArray2 = {1, 2, 6, 5, 2};
+		
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> new Rectangle(rectArray1));
+		Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> new Rectangle(rectArray2));
 	}
 
 	/*
