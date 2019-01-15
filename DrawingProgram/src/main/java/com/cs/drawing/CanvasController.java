@@ -38,9 +38,8 @@ public class CanvasController {
 					break;
 				//add shapes
 				default:
-					inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
 					try {
-						addShape(method, inputs);
+						addShape(method, lineArray);
 					} catch (Exception e) {
 						//invalid command
 						return e.getMessage();
@@ -52,12 +51,13 @@ public class CanvasController {
 		return canvas.printCanvas();
 	}
 	
-	private void addShape(String shape, int[] inputs) throws Exception, ArrayIndexOutOfBoundsException {
+	private void addShape(String shape, String[] lineArray) throws Exception, ArrayIndexOutOfBoundsException {
 		if (canvas == null) {
 			throw new Exception(StringConstants.ERROR_NO_CANVAS.getValue());
 		}
 		List<String> shapesCmd = Arrays.asList(StringConstants.SHAPES_COMMAND.getValue().split(","));
 		try {
+			int[] inputs = Arrays.asList(lineArray).stream().mapToInt(Integer::parseInt).toArray();
 			if (shapesCmd.contains(shape.toUpperCase())) {
 				canvas.addShape(shape.charAt(0), inputs);
 			} else {
