@@ -164,8 +164,10 @@ public class CanvasService {
 		
 		Queue<Integer[]> queue = new LinkedList<Integer[]>();
 		Integer[] first = {y, x};
+		Character toReplace = null;
 		try {
-    		if (canvas[first[0]][first[1]] == ' ') {
+    		if (canvas[first[0]][first[1]] != StringConstants.STROKE.getValue().charAt(0)) {
+    			toReplace = canvas[first[0]][first[1]];
     			canvas[first[0]][first[1]] = fill;
     	    	queue.add(first);
     		}
@@ -181,7 +183,7 @@ public class CanvasService {
         	//left
     		Integer[] left = {p[0], p[1] - 1};
     		try {
-    			if (canvas[left[0]][left[1]] == ' ') {
+    			if (canvas[left[0]][left[1]] == toReplace) {
 	    			canvas[left[0]][left[1]] = fill;
 	        		queue.add(left);
 	    		}
@@ -191,7 +193,7 @@ public class CanvasService {
             //right
             Integer[] right = {p[0], p[1] + 1};
             try {
-            	if (canvas[right[0]][right[1]] == ' ') {
+            	if (canvas[right[0]][right[1]] == toReplace) {
 	            	canvas[right[0]][right[1]] = fill;
 	            	queue.add(right);
 	            }
@@ -201,7 +203,7 @@ public class CanvasService {
             //top
             Integer[] top = {p[0]-1, p[1]};
             try {
-            	if (canvas[top[0]][top[1]] == ' ') {
+            	if (canvas[top[0]][top[1]] == toReplace) {
 	            	canvas[top[0]][top[1]] = fill;
 	            	queue.add(top);
 	            }
@@ -211,7 +213,7 @@ public class CanvasService {
             //bot
             Integer[] bot = {p[0]+1, p[1]};
             try {
-            	if (canvas[bot[0]][bot[1]] == ' ') {
+            	if (canvas[bot[0]][bot[1]] == toReplace) {
 	            	canvas[bot[0]][bot[1]] = fill;
 	            	queue.add(bot);
             	}
